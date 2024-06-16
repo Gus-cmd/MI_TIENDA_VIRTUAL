@@ -13,8 +13,9 @@
         <h1 class="mt-5 mb-4">Detalles del Producto</h1>
         <div id="listaProductos"></div>
         <div id="totalContainer" class="mt-4">
-            <h3>Total: $<span id="total">0.00</span></h3>
+            <h3>Total: <span id="total">0.00</span></h3>
             <h4 id="descuento" class="text-success"></h4>
+            <h3>Total a Pagar: <span id="totalPagar">0.00</span></h3>
         </div>
     </div>
 
@@ -23,6 +24,7 @@
             const listaProductos = document.getElementById('listaProductos');
             const totalElement = document.getElementById('total');
             const descuentoElement = document.getElementById('descuento');
+            const totalPagarElement = document.getElementById('totalPagar');
 
             function actualizarCarrito(carrito, cantidadProductos) {
                 listaProductos.innerHTML = '';
@@ -42,7 +44,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">${producto.nombre}</h5>
-                                        <p class="card-text">$${producto.precio}</p>
+                                        <p class="card-text">S/ ${producto.precio}</p>
                                         <div class="btn-cantidad">
                                             <button class="btn btn-danger me-2" onclick="cambiarCantidad(${index}, -1)">-</button>
                                             <span class="cantidad">${producto.cantidad}</span>
@@ -56,15 +58,28 @@
                     listaProductos.insertAdjacentHTML('beforeend', productoHTML);
                 });
 
-                if (cantidadTotalProductos > 3) {
-                    const descuento = total * 0.30;
-                    total -= descuento;
-                    descuentoElement.textContent = `Descuento aplicado: -$${descuento.toFixed(2)}`;
+                // Calcular descuento según la cantidad de productos
+                let descuento = 0;
+                if (cantidadTotalProductos >= 10) {
+                    descuento = total * 0.30;
+                } else if (cantidadTotalProductos >= 6) {
+                    descuento = total * 0.25;
+                } else if (cantidadTotalProductos >= 3) {
+                    descuento = total * 0.10;
+                }
+
+                const totalConDescuento = total - descuento;
+
+                // Mostrar el descuento y el total a pagar
+                if (descuento > 0) {
+                    descuentoElement.textContent = `Descuento aplicado: -S/ ${descuento.toFixed(2)}`;
                 } else {
                     descuentoElement.textContent = '';
                 }
 
-                totalElement.textContent = `$${total.toFixed(2)}`;
+                totalElement.textContent = `S/ ${total.toFixed(2)}`;
+                totalPagarElement.textContent = `S/ ${totalConDescuento.toFixed(2)}`;
+
                 localStorage.setItem('carrito', JSON.stringify(carrito));
                 localStorage.setItem('cantidadProductos', cantidadTotalProductos);
                 document.getElementById('carritoCantidad').textContent = cantidadTotalProductos;
@@ -80,7 +95,7 @@
                 const cantidadProductos = carrito.reduce((total, producto) => total + producto.cantidad, 0);
                 actualizarCarrito(carrito, cantidadProductos);
 
-                // Mostrar mensaje temporal de "Has agregado al carrito"
+                // Mostrar mensaje temporal de "Cantidad actualizada"
                 mostrarMensaje('Cantidad actualizada.');
             }
 
@@ -111,4 +126,5 @@
     </script>
 </body>
 </html>
+
 
