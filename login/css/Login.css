@@ -1,0 +1,62 @@
+body {
+ background: url(/assets/img/backgrounds/Background.jpg) no-repeat center center fixed;
+ background-size: cover;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.658);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #fff;
+}
+
+.form-group{
+    padding: 10px;
+    margin: 20px auto;
+    text-align: left;
+    color: #fff;
+}
+
+.form-control{
+    margin: 10px auto;
+    font-size: 14px;
+}
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn{
+    margin: 10px;
+    font-size: 14px;
+}
+
+.login-container p {
+    font-size: 14px;
+    color: #fdfdfd;
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #0a53bf;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #1324de;
+}
+
+
+/* Responsive (Adaptativo) */
+@media screen and (min-width: 768px) {
+    body {
+        background-attachment: scroll;
+        font-size: 12px;
+    }
+}

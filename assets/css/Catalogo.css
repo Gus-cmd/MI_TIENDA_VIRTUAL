@@ -1,0 +1,131 @@
+/* Barra de navegación */
+.navbar {
+    background-color: rgba(124, 224, 255, 0.267);
+    margin-top: 2px;
+}
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand .logo {
+    margin-left: 25px;
+    padding: 5px 0;
+    max-height: 50px;
+}
+
+.navbar-brand .seccion-descripcion {
+    font-size: 1rem;
+    margin-left: 10px;
+    color: #333;
+}
+
+.form-control {
+    width: 60vh;
+}
+
+.carrito {
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+/* Estilos Generales */
+.nav-link:hover, .btn:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.btn-primary:hover {
+    background-color: #004085;
+    border-color: #004085;
+}
+
+.btn, .nav-link {
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+/* Productos */
+.seccion-titulo {
+    font-size: 2rem;
+    margin: 40px 40px 60px 40px;
+    font-family: "Quicksand", sans-serif;
+}
+
+.seccion-descripcion {
+    font-size: 15px;
+}
+
+.texto-negro {
+    font-weight: bold;
+    background-color: rgba(124, 224, 255, 0.267);
+    padding: 15px;
+}
+
+.product-card {
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+/* Estilizar elementos activos */
+.nav-link.active {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.btn-primary:active {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+/* Responsivo (adaptable) */
+@media screen and (max-width: 767px) {
+    .seccion-titulo {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+    
+    .form-control {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+}
