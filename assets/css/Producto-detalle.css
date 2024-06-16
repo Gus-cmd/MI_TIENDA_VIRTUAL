@@ -1,0 +1,63 @@
+body{
+    background: url(/assets/img/backgrounds/Feild.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.container{
+    margin-top: 20px;
+    border: 2px solid white;
+    backdrop-filter: blur(10px);
+}
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 100px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-cantidad {
+    display: flex;
+    align-items: center;
+}
+
+.btn-cantidad button {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+}
+
+.cantidad {
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+#totalContainer {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+#descuento {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.mensaje-agregado {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
