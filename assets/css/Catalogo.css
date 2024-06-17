@@ -85,6 +85,18 @@ h2, h3 {
     border-color: #0056b3;
 }
 
+.mensaje-agregado {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
 .footer {
     background-color: #343a40;
     color: #fff;
@@ -112,3 +124,4 @@ h2, h3 {
 .footer h5 {
     margin-bottom: 20px;
 }
+

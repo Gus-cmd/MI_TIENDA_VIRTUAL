@@ -1,36 +1,38 @@
-h1{
+h1 {
     text-align: center;
     font-family: "Inconsolata", monospace;
 }
 
-h3{
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 20px;
-}
-
-h4{
+h3, h4 {
     font-family: "Josefin Sans", sans-serif;
 }
 
-body{
+body {
     background: url(/assets/img/backgrounds/Feild.jpg) no-repeat center center fixed;
     background-size: cover;
-    opacity: 80px;
+    opacity: 0.8;
+    padding-bottom: 80px; /* Para evitar superposición con el footer */
 }
-.container{
+
+.container {
     margin-top: 20px;
     border: 2px solid white;
     backdrop-filter: blur(10px);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
 }
 
 .card {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 .card-img-top {
     object-fit: cover;
-    height: 100px;
+    height: 150px;
+    border-radius: 10px 10px 0 0;
 }
 
 .card-body {
@@ -76,4 +78,22 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+}
+
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
