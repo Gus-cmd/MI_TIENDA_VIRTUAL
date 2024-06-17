@@ -1,17 +1,17 @@
-h1 {
+/* Estilos generales */
+h1, h3, h4 {
     text-align: center;
     font-family: "Inconsolata", monospace;
-}
-
-h3, h4 {
-    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 10px; /* Espacio inferior entre títulos */
 }
 
 body {
     background: url(/assets/img/backgrounds/Feild.jpg) no-repeat center center fixed;
     background-size: cover;
     opacity: 0.8;
-    padding-bottom: 80px; /* Para evitar superposición con el footer */
+    padding-bottom: 120px; /* Aumentamos el padding para dejar espacio suficiente para el footer */
+    min-height: 100vh; /* Asegura que el cuerpo tenga al menos el tamaño completo de la ventana */
+    position: relative; /* Para posicionar correctamente el footer */
 }
 
 .container {
@@ -21,11 +21,13 @@ body {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    position: relative; /* Asegura que el contenido dentro del container no se solape con el footer */
+    z-index: 1; /* Ajustamos el z-index para estar encima del fondo */
 }
 
 .card {
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
     border: none;
 }
 
@@ -41,14 +43,10 @@ body {
     align-items: center;
 }
 
-.btn-cantidad {
-    display: flex;
-    align-items: center;
-}
-
 .btn-cantidad button {
-    font-size: 1.2rem;
-    padding: 5px 10px;
+    font-size: 1.4rem; /* Aumento del tamaño del texto */
+    padding: 8px 16px; /* Aumento del padding */
+    border-radius: 5px; /* Borde redondeado */
 }
 
 .cantidad {
@@ -73,27 +71,13 @@ body {
     top: 20px;
     right: 20px;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #5cb85c; /* Verde más oscuro */
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
-footer {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+#listaProductos {
+    margin-bottom: 140px; /* Aumentamos el margen inferior para dejar espacio suficiente */
 }
