@@ -1,12 +1,28 @@
+h1{
+    text-align: center;
+    font-family: "Inconsolata", monospace;
+}
+
+h3{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+h4{
+    font-family: "Josefin Sans", sans-serif;
+}
+
 body{
     background: url(/assets/img/backgrounds/Feild.jpg) no-repeat center center fixed;
     background-size: cover;
+    opacity: 80px;
 }
 .container{
     margin-top: 20px;
     border: 2px solid white;
     backdrop-filter: blur(10px);
 }
+
 .card {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
