@@ -1,52 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const carritoCantidad = document.getElementById('carritoCantidad');
-    let cantidadProductos = localStorage.getItem('cantidadProductos') ? parseInt(localStorage.getItem('cantidadProductos')) : 0;
-    carritoCantidad.textContent = cantidadProductos;
-
-    const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
+    const carritoCantidadElement = document.getElementById('carritoCantidad');
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    botonesAgregarCarrito.forEach(function(boton) {
-        boton.addEventListener('click', function(event) {
-            event.preventDefault();
+    function agregarAlCarrito(event) {
+        const boton = event.target;
+        const id = boton.getAttribute('data-id');
+        const nombre = boton.getAttribute('data-nombre');
+        const precio = parseFloat(boton.getAttribute('data-precio'));
 
-            const nombreProducto = this.getAttribute('data-nombre');
-            const precioProducto = this.getAttribute('data-precio');
-            const imagenProducto = this.parentElement.querySelector('.product-image').src;
+        const producto = {
+            id: id,
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1 // Inicializamos la cantidad al agregarlo por primera vez
+        };
 
-            // Verificar si el producto ya está en el carrito
-            const productoExistente = carrito.find(p => p.nombre === nombreProducto);
-            if (productoExistente) {
-                productoExistente.cantidad++; // Incrementar la cantidad si ya existe
-            } else {
-                // Agregar el producto al carrito
-                const producto = {
-                    nombre: nombreProducto,
-                    precio: precioProducto,
-                    imagen: imagenProducto,
-                    cantidad: 1
-                };
-                carrito.push(producto);
-            }
+        // Verificar si el producto ya está en el carrito
+        const productoExistente = carrito.find(p => p.id === id);
+        if (productoExistente) {
+            productoExistente.cantidad++; // Incrementar la cantidad si ya existe
+        } else {
+            carrito.push(producto); // Agregar el producto al carrito si no existe
+        }
 
-            // Actualizar local storage y contador en el ícono del carrito
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            cantidadProductos++;
-            carritoCantidad.textContent = cantidadProductos;
-            localStorage.setItem('cantidadProductos', cantidadProductos);
+        // Actualizar local storage y contador en el ícono del carrito
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        const cantidadProductos = carrito.reduce((total, p) => total + p.cantidad, 0);
+        carritoCantidadElement.textContent = cantidadProductos;
+        localStorage.setItem('cantidadProductos', cantidadProductos);
 
-            // Mostrar mensaje temporal de "Has agregado al carrito"
-            mostrarMensaje('Has agregado "' + nombreProducto + '" al carrito.');
+        // Mostrar mensaje temporal de "Has agregado al carrito"
+        mostrarMensaje(`¡"${nombre}" se ha agregado al carrito! 🛒`);
+    }
 
-            // Disparar un evento personalizado para notificar cambios en el carrito
-            const eventoCarritoActualizado = new CustomEvent('carritoActualizado', {
-                detail: {
-                    carrito: carrito,
-                    cantidadProductos: cantidadProductos
-                }
-            });
-            document.dispatchEvent(eventoCarritoActualizado);
-        });
+    // Asignar el evento de click a todos los botones de agregar al carrito
+    const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
+    botonesAgregarCarrito.forEach(boton => {
+        boton.addEventListener('click', agregarAlCarrito);
     });
 
     const iconoCarrito = document.querySelector('.carrito');
@@ -63,6 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(function() {
             mensajeDiv.remove(); // Eliminar el mensaje después de 3 segundos
-        }, 1000); // 3000 milisegundos = 1 segundos
+        }, 3000);
     }
 });

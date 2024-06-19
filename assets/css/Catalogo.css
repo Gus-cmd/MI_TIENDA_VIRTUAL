@@ -1,13 +1,15 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Quicksand', sans-serif;
-    font-family: 'Rubik Dirt', cursive;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'Poppins', 'Quicksand', 'Rubik Dirt', 'Share Tech Mono', sans-serif;
 }
 
 h2, h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
+}
+
+p{
+    font-family:'Share Tech Mono', sans-serif ;
+    justify-content: center;
 }
 
 .seccion-titulo {
@@ -32,6 +34,7 @@ h2, h3 {
 .nav-link {
     color: #fff;
     font-size: 18px;
+    font-family: 'Share Tech Mono', sans-serif ;
 }
 
 .nav-link:hover {
@@ -46,6 +49,7 @@ h2, h3 {
 
 .form-control {
     margin-right: 10px;
+    font-family: 'Share Tech Mono', sans-serif;
 }
 
 .carrito .bi-cart-check {
@@ -83,6 +87,11 @@ h2, h3 {
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
+}
+
+.btn-outline-success{
+    background-color: white;
+    border: 3px solid greenyellow;
 }
 
 .mensaje-agregado {
